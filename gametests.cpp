@@ -1,9 +1,12 @@
-#include <iostream>
 #include <unistd.h>
+
+#include <iostream>
+
 #include "start.cpp"
 using namespace std;
-int main(){
-start game;
-game.selection();
-return 0;
+int main() {
+  system("clear");
+  start game;
+  game.selection();
+  return 0;
 }

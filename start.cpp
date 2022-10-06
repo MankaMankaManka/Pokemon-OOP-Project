@@ -16,14 +16,15 @@ class start : public loop {
 
  public:
   void selection() {
-    while (choice != 1 || choice != 2) {
+    while (choice != 1 && choice != 2) {
       looper();
       cin >> choice;
-      cout << "\r";
     }
     if (choice == 1) {
+      system("clear");
       main_game();
     } else if (choice == 2) {
+      system("clear");
       cout << "loading game function called" << endl;
     }
   }
