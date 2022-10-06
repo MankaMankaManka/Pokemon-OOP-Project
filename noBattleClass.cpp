@@ -438,7 +438,7 @@ void Trainer::pokemonInfo(std::string pnickname){
 Trainer::~Trainer(){
 }
 
-int main() {
+int main_game() {
 //set random number generator seed
 srand(time(0));
 
