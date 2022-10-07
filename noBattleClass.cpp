@@ -688,7 +688,7 @@ MoveList[35]=Move("Dark Pulse", Dark, 1, 80, 100);
       }
     }
   }
-  //Daniel.showTeam();
+  // Daniel.showTeam();
   for (int i = 0; i < 6; i++) {
     Daniel.pokemonInfo(Daniel.pokemonTeam[i].nickname);
     std::cout << std::endl;
@@ -813,7 +813,7 @@ MoveList[35]=Move("Dark Pulse", Dark, 1, 80, 100);
         } else if (input == 4) {
           std::cout << "You can't run from a trainer battle!" << std::endl;
           std::cout << "But you can for now!" << std::endl;
-          return 0;
+          return 2;
         } else {
           std::cout << "Please enter a valid option" << std::endl;
         }
@@ -975,12 +975,14 @@ MoveList[35]=Move("Dark Pulse", Dark, 1, 80, 100);
         std::cout << "you have run out of Pokemon to use"
                   << "\n"
                   << "Player Blacked out!\n";
+        return 0;
         battle = false;
       }
       if (pokemonKilled == 6) {
         std::cout << "opponent has run out of Pokemon to use"
                   << "\n"
                   << "Player wins 100g!\n";
+        return 1;
         battle = false;
       }
 

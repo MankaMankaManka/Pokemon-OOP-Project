@@ -9,13 +9,19 @@
 #include "noBattleClass.cpp"
 using namespace std;
 class start : public loop {
+ private:
+  int check = -1;
+
  public:
   string message1 = "Hello. Welcome to Pokemon, get ready to battle.";
   string message2 = "Enter 1 to start a new game or enter 2 to load a game.";
   int choice = 0;
-  int check = -1;
-
-  void selection() {
+  int set_check(int CHECK) {
+    check = CHECK;
+    return 0;
+  }
+  int get_check() { return check; }
+  virtual void selection() {  // added virtual
     while (choice != 1 && choice != 2) {
       looper();
       cin >> choice;
@@ -28,7 +34,7 @@ class start : public loop {
       cout << "loading game function called" << endl;
     }
   }
-  virtual void looper() {
+  void looper() {  // rm virtual
     cout << message1;
     cout.flush();
     sleep(3);
