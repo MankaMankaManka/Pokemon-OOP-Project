@@ -22,6 +22,7 @@ class start : public loop {
   }
   int get_check() { return check; }
   virtual void selection() {  // added virtual
+    system("clear");
     while (choice != 1 && choice != 2) {
       looper();
       cin >> choice;

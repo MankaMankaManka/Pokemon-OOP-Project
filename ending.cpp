@@ -19,6 +19,7 @@ class ending : public start {
   string message5 = "Enter 3 if you wish to save your progress.";
   string message6 = "Game over";
   void selection() {
+    system("clear"); //added
     while (choice != 1 && choice != 2 && choice != 3) {
       looper(starter);
       cin >> choice;
