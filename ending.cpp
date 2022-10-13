@@ -26,7 +26,7 @@ class ending : public start {
     }
     if (choice == 1) {
       system("clear");
-      new_game.set_check(main_game());
+      new_game.set_check(starter.begin.main_game());
       ending _new(new_game);
       _new.selection();
     } else if (choice == 2) {

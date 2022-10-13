@@ -13,6 +13,9 @@ class start : public loop {
   int check = -1;
 
  public:
+  TheGame begin;
+  start(){};
+  start(TheGame Game) { begin = Game; }
   string message1 = "Hello. Welcome to Pokemon, get ready to battle.";
   string message2 = "Enter 1 to start a new game or enter 2 to load a game.";
   int choice = 0;
@@ -29,7 +32,7 @@ class start : public loop {
     }
     if (choice == 1) {
       system("clear");
-      check = main_game();
+      check = begin.main_game();
     } else if (choice == 2) {
       system("clear");
       cout << "loading game function called" << endl;
