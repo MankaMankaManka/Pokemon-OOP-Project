@@ -1,27 +1,20 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "start.cpp"
+
 #include "noBattleClass.cpp"
 using namespace std;
-class save{
-start game_being_saved;
-save(){};
-save(start theGame){
-    game_being_saved = theGame;
-}
-void saving(){
+class save {
+ public:
+  TheGame game_being_saved;
+  save(){};
+  save(TheGame theGame) { game_being_saved = theGame; }
+  void saving() {
     ofstream GameSave("tests");
-    GameSave << 1;
-}
-
-
-}
-
-
-
-
-
+    cout << "saved called" << endl;
+    GameSave << game_being_saved.Pokemon_Array->currentHitPoints;
+  }
+};
 
 /*#include <fstream>
 #include <iostream>
@@ -34,4 +27,5 @@ int main(){
   cout << ch << endl;
   GameSave.close();
   return 0;
-}*/;
+}*/
+;

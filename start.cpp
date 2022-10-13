@@ -6,7 +6,8 @@
 #include <string>
 
 #include "loop.cpp"
-#include "noBattleClass.cpp"
+
+#include "save.cpp"
 using namespace std;
 class start : public loop {
  private:
@@ -35,7 +36,9 @@ class start : public loop {
       check = begin.main_game();
     } else if (choice == 2) {
       system("clear");
-      cout << "loading game function called" << endl;
+      save(begin).saving();
+      cout << "Game Saved" << endl;
+      selection();
     }
   }
   void looper() {  // rm virtual
