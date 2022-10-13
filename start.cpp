@@ -12,7 +12,7 @@ using namespace std;
 class start : public loop {
  private:
   int check = -1;
-
+int f = 2; ////////////////////////////////////
  public:
   TheGame begin;
   start(){};
@@ -35,10 +35,10 @@ class start : public loop {
       system("clear");
       check = begin.main_game();
     } else if (choice == 2) {
-      system("clear");
-      save(begin).saving();
-      cout << "Game Saved" << endl;
-      selection();
+      //system("clear");
+      f = save(begin).saving();
+      cout << "Game Saved" << f << endl;
+      //selection(); //clears console but choice = 2.???? maybe not
     }
   }
   void looper() {  // rm virtual
