@@ -34,6 +34,7 @@ class ending : public start {
       cout << "loading game function called" << endl;
     } else if (choice == 3) {
       system("clear");
+      saver.saving();
       // saving function called
       cout << "Game saved" << endl;
     }

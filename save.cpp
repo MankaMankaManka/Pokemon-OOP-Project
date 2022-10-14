@@ -9,11 +9,10 @@ class save {
   TheGame game_being_saved;
   save(){};
   save(TheGame theGame) { game_being_saved = theGame; }
-  int saving() {
+  void saving() {
     ofstream GameSave("tests");
     cout << "saved called" << endl;
-    GameSave << game_being_saved.Pokemon_Array->currentHitPoints;
-    return 1;
+    GameSave << game_being_saved.Pokemon_Array;//->currentHitPoints;
   }
 };
 

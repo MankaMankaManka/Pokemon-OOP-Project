@@ -6,17 +6,20 @@
 #include <string>
 
 #include "loop.cpp"
-
 #include "save.cpp"
 using namespace std;
 class start : public loop {
  private:
   int check = -1;
-int f = 2; ////////////////////////////////////
+  int f = 2;  ////////////////////////////////////
  public:
   TheGame begin;
+  save saver;
   start(){};
-  start(TheGame Game) { begin = Game; }
+  start(TheGame Game) {
+    begin = Game;
+    save saver(Game);
+  }
   string message1 = "Hello. Welcome to Pokemon, get ready to battle.";
   string message2 = "Enter 1 to start a new game or enter 2 to load a game.";
   int choice = 0;
@@ -35,10 +38,14 @@ int f = 2; ////////////////////////////////////
       system("clear");
       check = begin.main_game();
     } else if (choice == 2) {
+      
+      ////////////////SHOULD BE LOAD IN HERE
+
+
       //system("clear");
-      f = save(begin).saving();
-      cout << "Game Saved" << f << endl;
-      //selection(); //clears console but choice = 2.???? maybe not
+      //saver.saving();
+      //cout << choice << endl;
+      // selection(); //clears console but choice = 2.???? maybe not
     }
   }
   void looper() {  // rm virtual

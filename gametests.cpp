@@ -15,3 +15,4 @@ int main() {  // stand alone functions only
   game_2.selection();
   return 0;
 }
+//g++ gametests.cpp -o t
