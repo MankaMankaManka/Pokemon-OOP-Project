@@ -19,7 +19,7 @@ class ending : public start {
   string message5 = "Enter 3 if you wish to save your progress.";
   string message6 = "Game over";
   void selection() {
-    system("clear"); //added
+    system("clear");  // added
     while (choice != 1 && choice != 2 && choice != 3) {
       looper(starter);
       cin >> choice;
@@ -31,12 +31,14 @@ class ending : public start {
       _new.selection();
     } else if (choice == 2) {
       system("clear");
-      cout << "loading game function called" << endl;
+      load_game.loader();
+      new_game.set_check(starter.begin.main_game2());
+      ending _new(new_game);
     } else if (choice == 3) {
       system("clear");
       saver.saving();
-      // saving function called
-      cout << "Game saved" << endl;
+      ending _new(new_game);
+      _new.selection();
     }
   }
   void looper(start game_starter) {

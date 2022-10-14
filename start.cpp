@@ -6,7 +6,7 @@
 #include <string>
 
 #include "loop.cpp"
-#include "save.cpp"
+#include "load.cpp"
 using namespace std;
 class start : public loop {
  private:
@@ -14,10 +14,12 @@ class start : public loop {
   int f = 2;  ////////////////////////////////////
  public:
   TheGame begin;
+  load load_game;
   save saver;
   start(){};
   start(TheGame Game) {
     begin = Game;
+    load load_game(Game);
     save saver(Game);
   }
   string message1 = "Hello. Welcome to Pokemon, get ready to battle.";
@@ -38,14 +40,9 @@ class start : public loop {
       system("clear");
       check = begin.main_game();
     } else if (choice == 2) {
-      
-      ////////////////SHOULD BE LOAD IN HERE
-
-
-      //system("clear");
-      //saver.saving();
-      //cout << choice << endl;
-      // selection(); //clears console but choice = 2.???? maybe not
+      system("clear");
+      load_game.loader();
+      check = begin.main_game2();
     }
   }
   void looper() {  // rm virtual
