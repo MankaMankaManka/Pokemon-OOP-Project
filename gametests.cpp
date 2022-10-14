@@ -16,3 +16,6 @@ int main() {  // stand alone functions only
   return 0;
 }
 //g++ gametests.cpp -o t
+
+
+// Dosen't offer selection choices, unknown move names, unknown pokemon names.
