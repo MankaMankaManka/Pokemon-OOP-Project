@@ -15,7 +15,7 @@ class load {
     for (int i = 0; i < 6; i++) {
       void* poke_ptr[i];
       GameLoad >> poke_ptr[i];
-      Pokemon* adress = (Pokemon*)poke_ptr[i];
+      game_saved.Pokemon_Array = (Pokemon*)poke_ptr[i];
     }
     GameLoad.close();
   }

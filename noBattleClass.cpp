@@ -1208,6 +1208,16 @@ class TheGame {
 
     for (int i = 0; i < 6; i++) {
       RandomPokemon[i] = *(Pokemon_Array + i);
+      Daniel.addToTeam(RandomPokemon[i]);
+      for (int j = 0; j < 6; j++) {
+        if (Daniel.pokemonTeam[i].nickname == Daniel.pokemonTeam[j].nickname) {
+          if (i == j) {
+          } else {
+            Daniel.changeNickname(Daniel.pokemonTeam[j].nickname,
+                                  Daniel.pokemonTeam[j].nickname + "2");
+          }
+        }
+      }
     }
     // Daniel.showTeam();
     for (int i = 0; i < 6; i++) {
