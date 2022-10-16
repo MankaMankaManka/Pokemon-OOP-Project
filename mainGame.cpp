@@ -450,6 +450,7 @@ class TheGame {
  public:
   // Pokemon RandomPokemon[6];
   Pokemon* Pokemon_Array = new Pokemon[6];
+  Pokemon* Computer_Array = new Pokemon[6];
   // Pokemon* Pokemon_Array[6];
 
   ~TheGame(){};
@@ -716,6 +717,9 @@ class TheGame {
     }
 
     for (int i = 0; i < 6; i++) {
+      *(Computer_Array + i) = Opponent.pokemonTeam[i];
+    }
+    for (int i = 0; i < 6; i++) {
       *(Pokemon_Array + i) = Daniel.pokemonTeam[i];
     }
 
@@ -829,6 +833,9 @@ class TheGame {
             std::cout << "But you can for now!" << std::endl;
             for (int i = 0; i < 6; i++) {
               *(Pokemon_Array + i) = Daniel.pokemonTeam[i];
+            }
+            for (int i = 0; i < 6; i++) {
+              *(Computer_Array + i) = Opponent.pokemonTeam[i];
             }
             return 2;
           } else {
@@ -1221,6 +1228,11 @@ class TheGame {
         }
       }
     }
+
+    for (int k = 0; k < 6; k++) {
+      Opponent.addToTeam(*(Computer_Array+k));
+    }
+
     // Daniel.showTeam();
     for (int i = 0; i < 6; i++) {
       Daniel.pokemonInfo(Daniel.pokemonTeam[i].nickname);

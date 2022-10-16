@@ -16,9 +16,12 @@ class load {
       void* poke_ptr[i];
       GameLoad >> poke_ptr[i];
       game_saved.Pokemon_Array = (Pokemon*)poke_ptr[i];
-      //cout << game_saved.Pokemon_Array->nickname << endl;
     }
-    cout << game_saved.Pokemon_Array->currentHitPoints << endl;
+    for (int j = 0; j < 6; j++) {
+      void* poke_ptr[j];
+      GameLoad >> poke_ptr[j];
+      game_saved.Pokemon_Array = (Pokemon*)poke_ptr[j];
+    }
     GameLoad.close();
   }
 };
