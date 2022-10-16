@@ -12,32 +12,41 @@ class ending : public start {
  public:
   ending(){};
   start starter;
-  start new_game;
+  // start new_game;
   ending(start initial) { starter = initial; }
   string message3 = "Congratulations you win";
   string message4 = "You lose";
   string message5 = "Enter 3 if you wish to save your progress.";
   string message6 = "Game over";
+
   void selection() {
     system("clear");  // added
     while (choice != 1 && choice != 2 && choice != 3) {
       looper(starter);
+      starter.set_check(-1);
       cin >> choice;
     }
     if (choice == 1) {
       system("clear");
-      new_game.set_check(starter.begin.main_game());
-      ending _new(new_game);
+      starter.set_check(starter.begin.main_game());
+      choice = 0;
+      ending _new(starter);
       _new.selection();
     } else if (choice == 2) {
       system("clear");
+      load load_game(begin);
       load_game.loader();
-      new_game.set_check(starter.begin.main_game2());
-      ending _new(new_game);
+      starter.set_check(starter.begin.main_game2());
+      choice = 0;
+      ending _new(starter);
+      
+      _new.selection();
     } else if (choice == 3) {
       system("clear");
+      save saver(starter.begin);
       saver.saving();
-      ending _new(new_game);
+      choice = 0;
+      ending _new(starter);
       _new.selection();
     }
   }

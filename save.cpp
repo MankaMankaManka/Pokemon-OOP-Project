@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include "noBattleClass.cpp"
+#include "mainGame.cpp"
 using namespace std;
 class save {
  public:

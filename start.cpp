@@ -14,13 +14,9 @@ class start : public loop {
   int f = 2;  ////////////////////////////////////
  public:
   TheGame begin;
-  load load_game;
-  save saver;
   start(){};
   start(TheGame Game) {
     begin = Game;
-    load load_game(Game);
-    save saver(Game);
   }
   string message1 = "Hello. Welcome to Pokemon, get ready to battle.";
   string message2 = "Enter 1 to start a new game or enter 2 to load a game.";
@@ -41,6 +37,7 @@ class start : public loop {
       check = begin.main_game();
     } else if (choice == 2) {
       system("clear");
+      load load_game(begin);
       load_game.loader();
       check = begin.main_game2();
     }

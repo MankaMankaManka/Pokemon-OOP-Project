@@ -11,7 +11,10 @@ int main() {  // stand alone functions only
   TheGame starter;
   start game_1(starter);
   game_1.selection();
+  //cout << game_1.begin.Pokemon_Array->nickname << endl;
   ending game_2(game_1);
+  //cout << game_1.begin.Pokemon_Array->nickname << endl;
+  //cout << game_2.begin.Pokemon_Array->nickname << endl;
   game_2.selection();
   return 0;
 }
