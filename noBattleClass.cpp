@@ -15,6 +15,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <time.h>
+#include <limits>
 
 // Class definition for a Type
 class Type
@@ -1052,14 +1053,14 @@ for (int i=0;i<6;i++){
 int input=7;
 Daniel.showTeam();
 std::cout<<"Pick your Pokemon!"<<std::endl;
-std::cin>>input;
+while (input<1 || input >6){
+	while(!(std::cin >> input)){
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input.  Try again: ";
+	}	
+}
 
-	while (input<1 || input >6){
-			std::cout<<"enter one of the given options"<<std::endl;
-			input=7;
-			std::cout<<"Pick your Pokemon!"<<std::endl;
-			std::cin>>input;
-		}
 	
 Pokemon *PlayerPokemon= &Daniel.pokemonTeam[input-1];
 Pokemon *OpponentPokemon=&Opponent.pokemonTeam[rand()%6];
@@ -1082,7 +1083,7 @@ bool battle=true;
 while (battle==true){
 //main screen
 while (turnPhase==1){
-input=6;
+input=8;
 while(input<1 || input >4){//picking from Fight Pokemon Bag and Run
 std::cout << "\n\n\n\n\n\n\n\n\n";
 std::cout<<OpponentPokemon->currentHitPoints<<
@@ -1094,7 +1095,12 @@ std::cout << PlayerPokemon->nickname<<"    "<<PlayerPokemon->currentHitPoints<<
 std::cout << "Fight [1]" << "	"<< "Pokemon [2]"<<std::endl;
 std::cout << "Bag [3]" <<"		"<< "Run [4]" << std::endl;
 std::cout<< "\n\n\n";
-	std::cin>>input;
+	input=8;
+	while(!(std::cin >> input)){
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input.  Try again: ";
+	}	
 	
 if (input==1){//Fight
 
@@ -1110,7 +1116,12 @@ if (input==1){//Fight
 	std::cout << PlayerPokemon->pokemonMove[2].moveName <<" [3]    "
 	<<PlayerPokemon->pokemonMove[3].moveName<< " [4]"<<std::endl;
 	
-std::cin>>input;
+input=8;
+while(!(std::cin >> input)){
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input.  Try again: ";
+	}	
 	if 		  (input==1){
 		PlayerMove=&PlayerPokemon->pokemonMove[0];
 		turnPhase=2;
@@ -1131,7 +1142,12 @@ std::cin>>input;
 }else if(input==2){//pokemon
 	std::cout << "\n\n\n\n\n\n\n\n\n";
 	Daniel.showTeam();
-	std::cin>>input;
+	input=8;
+	while(!(std::cin >> input)){
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input.  Try again: ";
+	}	
 	if (input>0 && input <7){
 		if (!(Daniel.pokemonTeam[input-1].currentHitPoints==0)){
 		PlayerPokemon= &Daniel.pokemonTeam[input-1];
@@ -1200,16 +1216,23 @@ while (turnPhase==2){
 			playerPokemonKilled++;
 Daniel.showTeam();
 std::cout<<"Pick your Pokemon!"<<std::endl;
-std::cin>>input;
+input=8;
+while(!(std::cin >> input)){
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input.  Try again: ";
+	}	
 if (Daniel.pokemonTeam[input-1].currentHitPoints==0){
 	std::cout << "pokemon has 0 hitpoints" << "\n";
 	input=7;
 }
+input=7;
 	while (input<1 || input >6){
-			std::cout<<"enter one of the given options"<<std::endl;
-			input=7;
-			std::cout<<"Pick your Pokemon!"<<std::endl;
-			std::cin>>input;
+			while(!(std::cin >> input)){
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input.  Try again: ";
+	}	
 			if (Daniel.pokemonTeam[input-1].currentHitPoints==0){
 	std::cout << "pokemon has 0 hitpoints" << "\n";
 	input=7;
@@ -1275,13 +1298,14 @@ if (attacking->speciesType.type1.typeName==attackingMove->moveType.typeName ||
 			playerPokemonKilled++;
 Daniel.showTeam();
 std::cout<<"Pick your Pokemon!"<<std::endl;
-std::cin>>input;
-
+//std::cin>>input;
+input=7;
 	while (input<1 || input >6){
-			std::cout<<"enter one of the given options"<<std::endl;
-			input=7;
-			std::cout<<"Pick your Pokemon!"<<std::endl;
-			std::cin>>input;
+			while(!(std::cin >> input)){
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input.  Try again: ";
+	}	
 		}
 	PlayerPokemon= &Daniel.pokemonTeam[input-1];
 		}
