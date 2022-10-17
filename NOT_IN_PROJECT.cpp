@@ -452,8 +452,6 @@ class TheGame {
   // Pokemon RandomPokemon[6];
   Pokemon* Pokemon_Array = new Pokemon[6];
   Pokemon* Computer_Array = new Pokemon[6];
-  int* trainerProgress = new int;
-  int* computerProgress = new int;
   // Pokemon* Pokemon_Array[6];
 
   ~TheGame(){};
@@ -668,9 +666,7 @@ class TheGame {
         }
       }
     }
-    cout << "Your Pokemon Information:"
-         << "\n"
-         << endl;
+    Daniel.showTeam();
     for (int i = 0; i < 6; i++) {
       Daniel.pokemonInfo(Daniel.pokemonTeam[i].nickname);
       std::cout << std::endl;
@@ -680,9 +676,6 @@ class TheGame {
       RandomPokemon[i] = Pokedex[a];
       Opponent.addToTeam(RandomPokemon[i]);
     }
-    cout << "Opponent team:"
-         << "\n"
-         << endl;
     Opponent.showTeam();
 
     for (int i = 0; i < 6; i++) {
@@ -693,11 +686,8 @@ class TheGame {
     }
 
     int input = 7;
-    std::cout << "\n"
-              << "Pick your Pokemon!"
-              << "\n"
-              << std::endl;
     Daniel.showTeam();
+    std::cout << "Pick your Pokemon!" << std::endl;
     while (input < 1 || input > 6) {
       while (!(std::cin >> input)) {
         std::cin.clear();
@@ -720,8 +710,6 @@ class TheGame {
     Move Move;
     int pokemonKilled = 0;
     int playerPokemonKilled = 0;
-    *trainerProgress = pokemonKilled;
-    *computerProgress = playerPokemonKilled;
 
     int turnPhase = 1;
     bool battle = true;
@@ -827,8 +815,6 @@ class TheGame {
             for (int i = 0; i < 6; i++) {
               *(Pokemon_Array + i) = Daniel.pokemonTeam[i];
             }
-            *trainerProgress = playerPokemonKilled;
-            *computerProgress = pokemonKilled;
             return 2;
           } else {
             std::cout << "Please enter a valid option" << std::endl;
@@ -1229,10 +1215,7 @@ class TheGame {
         }
       }
     }
-
-    cout << "Your Pokemon Information:"
-         << "\n"
-         << endl;
+    Daniel.showTeam();
     for (int i = 0; i < 6; i++) {
       Daniel.pokemonInfo(Daniel.pokemonTeam[i].nickname);
       std::cout << std::endl;
@@ -1240,9 +1223,6 @@ class TheGame {
     for (int k = 0; k < 6; k++) {
       Opponent.addToTeam(*(Computer_Array + k));
     }
-    cout << "Opponent Team:"
-         << "\n"
-         << endl;
     Opponent.showTeam();
 
     for (int i = 0; i < 6; i++) {
@@ -1253,11 +1233,8 @@ class TheGame {
     }
 
     int input = 7;
-    std::cout << "\n"
-              << "Pick your Pokemon!"
-              << "\n"
-              << std::endl;
     Daniel.showTeam();
+    std::cout << "Pick your Pokemon!" << std::endl;
     while (input < 1 || input > 6) {
       while (!(std::cin >> input)) {
         std::cin.clear();
@@ -1278,8 +1255,8 @@ class TheGame {
     bool selectedMove = false;
     int damageNumber;
     Move Move;
-    int pokemonKilled = *trainerProgress;
-    int playerPokemonKilled = *computerProgress;
+    int pokemonKilled = 0;
+    int playerPokemonKilled = 0;
 
     int turnPhase = 1;
     bool battle = true;

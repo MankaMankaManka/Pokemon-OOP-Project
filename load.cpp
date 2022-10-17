@@ -22,6 +22,12 @@ class load {
       GameLoad >> poke_ptr[j];
       game_saved.Pokemon_Array = (Pokemon*)poke_ptr[j];
     }
+    void* playerKilled;
+    GameLoad >> playerKilled;
+    game_saved.trainerProgress = (int*)playerKilled;
+    void* computerKilled;
+    GameLoad >> computerKilled;
+    game_saved.computerProgress = (int*)computerKilled;
     GameLoad.close();
   }
 };

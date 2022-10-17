@@ -4,20 +4,17 @@
 
 #include <iostream>
 #include <string>
-
-#include "loop.cpp"
+using namespace std;
 #include "load.cpp"
+#include "loop.cpp"
 using namespace std;
 class start : public loop {
  private:
   int check = -1;
-  int f = 2;  ////////////////////////////////////
  public:
   TheGame begin;
   start(){};
-  start(TheGame Game) {
-    begin = Game;
-  }
+  start(TheGame Game) { begin = Game; }
   string message1 = "Hello. Welcome to Pokemon, get ready to battle.";
   string message2 = "Enter 1 to start a new game or enter 2 to load a game.";
   int choice = 0;
@@ -26,11 +23,19 @@ class start : public loop {
     return 0;
   }
   int get_check() { return check; }
-  virtual void selection() {  // added virtual
+  virtual void selection() {
     system("clear");
     while (choice != 1 && choice != 2) {
       looper();
-      cin >> choice;
+      while (choice < 1 || choice > 2) {
+        while (!(std::cin >> choice)) {
+          std::cin.clear();
+          std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+          system("clear");
+          cout << "Invalid input, please try again." << endl;
+          cout << message2 << endl;
+        }
+      }
     }
     if (choice == 1) {
       system("clear");
@@ -42,7 +47,7 @@ class start : public loop {
       check = begin.main_game2();
     }
   }
-  void looper() {  // rm virtual
+  void looper() {
     cout << message1;
     cout.flush();
     sleep(3);
