@@ -18,7 +18,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
-
+using namespace std;
 // Class definition for a Type
 class Type {
  public:
@@ -668,9 +668,9 @@ class TheGame {
         }
       }
     }
-    cout << "Your Pokemon Information:"
+    std::cout << "Your Pokemon Information:"
          << "\n"
-         << endl;
+         << std::endl;
     for (int i = 0; i < 6; i++) {
       Daniel.pokemonInfo(Daniel.pokemonTeam[i].nickname);
       std::cout << std::endl;
